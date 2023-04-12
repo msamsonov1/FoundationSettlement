@@ -1,0 +1,14 @@
+# Input parameters, this is just a check
+import math
+depth = float(input("Enter the depth of the foundation in ft: "))
+H = float(input("Enter a height of layer of soil in ft: "))
+Po = float(input("Enter the initial effective overburden pressure in lb/ft^2: "))
+deltaP = float(input("Enter the increase in effective overburden pressure due to proposed building in lb/ft^2: "))
+
+# Calculation of settlement
+C = 200  # change it to other compression index values here
+deltaH = sum([(H/C) * math.log10((Po + deltaP) / Po)])
+deltaH *= 12 * 12 / 120  # convert settlement to inches if soil is other than 120 pcf change it here
+
+# Output results
+print(f"Foundation will settle: {deltaH:.2f} in")
