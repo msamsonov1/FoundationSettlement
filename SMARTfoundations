@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Read data from Geokon, Insitu, and Trexler transducers
+geokon_data = pd.read_csv("geokon_data.csv")
+insitu_data = pd.read_csv("insitu_data.csv")
+trexler_data = pd.read_csv("trexler_data.csv")
+
+# Combine data into one DataFrame
+data = pd.concat([geokon_data, insitu_data, trexler_data], axis=1)
+
+# Plot settlement vs. time
+plt.plot(data["Time"], data["Settlement"])
+plt.xlabel("Time (hours)")
+plt.ylabel("Settlement (mm)")
+plt.show()
