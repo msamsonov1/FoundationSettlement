@@ -1,3 +1,4 @@
+#This code will read data from three different types of deep foundation transducers and plot settlement vs. time. Can be tweaked for tilt data
 import matplotlib.pyplot as plt
 import pandas as pd
 
