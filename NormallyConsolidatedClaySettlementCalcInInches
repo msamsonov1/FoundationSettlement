@@ -1,0 +1,21 @@
+import math
+
+# Define the soil parameters
+print("SETTLEMENT CALCULATOR FOR NORMALLY CONSOLIDATED CLAYEY SOIL")
+L = float(input("Proposed Building Total Load in [lbs]: "))
+W = float(input("Proposed Building Width [feet]: "))
+B = float(input("Proposed Building Length [feet]: "))
+H = float(input("Clay Layer Depth [feet]: "))
+S1=float(input("Density of Soil Layer 1 [pcf]: "))
+D1=float(input("Depth of Soil Layer 1 [feet]: "))
+S2=float(input("Density of Clay Layer [pcf]: "))
+vo = (S1 * D1) + (S2 * (H/2))
+A = L / (W * B)
+Cc = float(input("Compression Index [Cc]: "))
+e = float(input("Initial Void Ratio [e]: "))
+
+# Calculate the settlement
+S = (Cc * (H / (1 + e)) * math.log((vo + A)/vo) / math.log(10))*12
+
+# Print the settlement
+print("The settlement is: {} inches".format(S))
