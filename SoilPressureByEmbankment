@@ -1,0 +1,26 @@
+import numpy as np
+
+def calculate_embankment_pressure(height, width, unit_weight):
+  """Calculates the approximate pressure exerted by an embankment on the subsoil.
+
+  Args:
+    height: Height of the embankment (ft).
+    width: Width of the embankment (ft).
+    unit_weight: Unit weight of the embankment material (lb/ft^3).
+
+  Returns:
+    Pressure exerted by the embankment on the subsoil (ksi).
+  """
+
+  area = height * width
+  weight = area * unit_weight
+  pressure_psf = weight / area
+  pressure_ksi = pressure_psf / 144  # Convert from psf to ksi
+  return pressure_ksi
+
+# Example usage:
+height = 30  # feet
+width = 50  # feet
+unit_weight = 120  # lb/ft^3
+pressure = calculate_embankment_pressure(height, width, unit_weight)
+print("Pressure exerted by the embankment:", pressure, "ksi")
